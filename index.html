@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cap Logistic — Consultant en organisation et optimisation opérationnelle pour TPE et e-commerçants. Audit, gestion des stocks, mise en place de process. Indre-et-Loire (37), Vienne (86).">
+<meta name="keywords" content="consultant logistique, organisation TPE, optimisation process, gestion stocks, consultant indépendant, Indre-et-Loire, Vienne, Tours, Poitiers">
+<meta name="author" content="Christopher Brosse — Cap Logistic">
+<title>Cap Logistic — Conseil en organisation & optimisation opérationnelle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --noir: #1A1A1A;
+  --or: #E5A020;
+  --or-clair: #F5C84A;
+  --blanc: #FFFFFF;
+  --gris: #888888;
+  --gris-clair: #F5F5F3;
+  --gris-fonce: #2A2A2A;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--noir);
+  color: var(--blanc);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ---- NAV ---- */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(26,26,26,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(229,160,32,0.15);
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  color: var(--blanc);
+}
+
+.nav-logo span { color: var(--or); }
+
+nav a {
+  color: var(--gris);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--or); }
+
+.nav-links { display: flex; gap: 2rem; align-items: center; }
+
+.nav-cta {
+  background: var(--or) !important;
+  color: var(--noir) !important;
+  padding: 0.5rem 1.2rem;
+  font-weight: 500 !important;
+  letter-spacing: 0.03em !important;
+}
+.nav-cta:hover { background: var(--or-clair) !important; }
+
+/* ---- HERO ---- */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 8rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(229,160,32,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(229,160,32,0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(229,160,32,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.compass-bg {
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 520px;
+  height: 520px;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--or);
+  border: 1px solid rgba(229,160,32,0.3);
+  padding: 0.35rem 0.9rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+}
+
+h1 .accent { color: var(--or); }
+h1 .thin { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: clamp(1.8rem, 4vw, 3.5rem); display: block; letter-spacing: 0; line-height: 1.2; margin-top: 0.3rem; }
+
+.hero-desc {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 3rem; }
+
+.btn-primary {
+  background: var(--or);
+  color: var(--noir);
+  padding: 0.85rem 2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: var(--or-clair); transform: translateY(-1px); }
+
+.btn-secondary {
+  color: var(--blanc);
+  padding: 0.85rem 2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: inline-block;
+  transition: border-color 0.2s, transform 0.15s;
+}
+.btn-secondary:hover { border-color: var(--or); color: var(--or); transform: translateY(-1px); }
+
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.stat-item { display: flex; flex-direction: column; gap: 0.2rem; }
+.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: var(--or); letter-spacing: 0.05em; line-height: 1; }
+.stat-label { font-size: 0.78rem; color: var(--gris); letter-spacing: 0.05em; text-transform: uppercase; }
+
+/* ---- SECTIONS COMMUNES ---- */
+section { padding: 5rem 2rem; }
+.container { max-width: 1100px; margin: 0 auto; width: 100%; }
+
+.section-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--or);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  letter-spacing: 0.03em;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.section-desc {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+  max-width: 500px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+/* ---- PROBLÈMES ---- */
+#problemes { background: var(--gris-fonce); }
+
+.problemes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  background: rgba(229,160,32,0.1);
+  border: 1px solid rgba(229,160,32,0.1);
+  margin-top: 3rem;
+}
+
+.pb-item {
+  background: var(--gris-fonce);
+  padding: 2rem;
+  transition: background 0.2s;
+}
+.pb-item:hover { background: #303030; }
+
+.pb-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: rgba(229,160,32,0.15);
+  line-height: 1;
+  margin-bottom: 0.8rem;
+}
+
+.pb-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--blanc);
+}
+
+.pb-desc { font-size: 0.9rem; color: var(--gris); font-weight: 300; line-height: 1.6; }
+
+/* ---- SERVICES ---- */
+#services { background: var(--noir); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.service-card {
+  border: 1px solid rgba(229,160,32,0.15);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.service-card:hover { border-color: var(--or); transform: translateY(-3px); }
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--or);
+}
+
+.service-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: var(--or);
+  margin-bottom: 1rem;
+}
+
+.service-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.8rem;
+  color: var(--blanc);
+}
+
+.service-desc {
+  font-size: 0.9rem;
+  color: var(--gris);
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.service-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: var(--or);
+  letter-spacing: 0.05em;
+}
+
+.service-price span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--gris);
+  font-weight: 300;
+  letter-spacing: 0;
+}
+
+.service-items {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.service-items li {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 300;
+  padding: 0.3rem 0;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.service-items li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--or);
+  font-size: 0.75rem;
+}
+
+/* ---- MÉTHODE ---- */
+#methode { background: var(--gris-fonce); }
+
+.methode-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0;
+  margin-top: 3rem;
+  position: relative;
+}
+
+.methode-steps::after {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--or), transparent);
+  pointer-events: none;
+}
+
+.step-item { padding: 0 1.5rem 2rem; text-align: center; position: relative; }
+
+.step-circle {
+  width: 56px;
+  height: 56px;
+  border: 2px solid var(--or);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  color: var(--or);
+  background: var(--gris-fonce);
+  position: relative;
+  z-index: 1;
+}
+
+.step-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--blanc);
+}
+
+.step-desc { font-size: 0.85rem; color: var(--gris); font-weight: 300; line-height: 1.6; }
+
+/* ---- À PROPOS ---- */
+#apropos { background: var(--noir); }
+
+.apropos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.apropos-atouts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.atout-item {
+  border-left: 2px solid var(--or);
+  padding: 0.8rem 1rem;
+  background: rgba(229,160,32,0.04);
+}
+
+.atout-chiffre {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  color: var(--or);
+  line-height: 1;
+}
+
+.atout-label { font-size: 0.8rem; color: var(--gris); font-weight: 300; margin-top: 0.2rem; }
+
+.apropos-quote {
+  font-size: 1.3rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+  border-left: 3px solid var(--or);
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.apropos-text {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* ---- ZONE ---- */
+#zone { background: var(--gris-fonce); }
+
+.zone-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.zone-list { list-style: none; margin-top: 1.5rem; }
+.zone-list li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.zone-list li::before { content: '◆'; color: var(--or); font-size: 0.5rem; flex-shrink: 0; }
+
+.zone-map {
+  background: rgba(229,160,32,0.04);
+  border: 1px solid rgba(229,160,32,0.15);
+  padding: 3rem;
+  text-align: center;
+  position: relative;
+}
+
+.zone-dept {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5rem;
+  color: rgba(229,160,32,0.2);
+  line-height: 1;
+  display: block;
+}
+
+.zone-nom {
+  font-size: 1rem;
+  color: var(--or);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---- CONTACT ---- */
+#contact {
+  background: var(--noir);
+  text-align: center;
+  padding: 6rem 2rem;
+}
+
+.contact-box {
+  max-width: 680px;
+  margin: 0 auto;
+  border: 1px solid rgba(229,160,32,0.2);
+  padding: 3rem;
+  position: relative;
+}
+
+.contact-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 2rem; right: 2rem;
+  height: 2px;
+  background: var(--or);
+}
+
+.contact-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.8rem;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.8rem;
+}
+
+.contact-sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+}
+
+.contact-items { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-item:hover { color: var(--or); }
+.contact-icon { color: var(--or); font-size: 1rem; }
+
+.contact-note {
+  font-size: 0.82rem;
+  color: var(--gris);
+  font-style: italic;
+}
+
+/* ---- FOOTER ---- */
+footer {
+  background: #111;
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(229,160,32,0.1);
+}
+
+footer p { font-size: 0.82rem; color: var(--gris); font-weight: 300; }
+footer span { color: var(--or); }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.2rem; }
+  .nav-links { display: none; }
+  #hero { padding: 6rem 1.2rem 3rem; }
+  h1 { font-size: 3rem; }
+  .hero-stats { gap: 1.5rem; }
+  section { padding: 3.5rem 1.2rem; }
+  .apropos-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .zone-content { grid-template-columns: 1fr; gap: 2rem; }
+  .methode-steps::after { display: none; }
+  .contact-box { padding: 2rem 1.2rem; }
+  .apropos-atouts { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---- ANIMATIONS ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-tag, h1, .hero-desc, .hero-actions, .hero-stats {
+  animation: fadeUp 0.6s ease both;
+}
+.hero-tag { animation-delay: 0.1s; }
+h1 { animation-delay: 0.2s; }
+.hero-desc { animation-delay: 0.35s; }
+.hero-actions { animation-delay: 0.45s; }
+.hero-stats { animation-delay: 0.55s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Cap <span>Logistic</span></div>
+  <div class="nav-links">
+    <a href="#problemes">Votre situation</a>
+    <a href="#services">Services</a>
+    <a href="#methode">Méthode</a>
+    <a href="#apropos">À propos</a>
+    <a href="#contact" class="nav-cta">Me contacter</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <svg class="compass-bg" viewBox="0 0 200 200" fill="none">
+    <circle cx="100" cy="100" r="95" stroke="white" stroke-width="2"/>
+    <circle cx="100" cy="100" r="72" stroke="#E5A020" stroke-width="1"/>
+    <polygon points="100,12 106,100 100,92 94,100" fill="white"/>
+    <polygon points="100,188 106,100 100,108 94,100" fill="#E5A020"/>
+    <circle cx="100" cy="100" r="6" fill="white"/>
+    <line x1="100" y1="5" x2="100" y2="16" stroke="white" stroke-width="3"/>
+    <line x1="100" y1="184" x2="100" y2="195" stroke="white" stroke-width="3"/>
+    <line x1="5" y1="100" x2="16" y2="100" stroke="white" stroke-width="3"/>
+    <line x1="184" y1="100" x2="195" y2="100" stroke="white" stroke-width="3"/>
+    <text x="100" y="8" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif" font-weight="bold">N</text>
+  </svg>
+
+  <div class="hero-content">
+    <span class="hero-tag">Consultant indépendant · 37 & 86</span>
+    <h1>
+      Reprenez<br>le <span class="accent">contrôle</span>
+      <span class="thin">de votre organisation</span>
+    </h1>
+    <p class="hero-desc">Audit terrain, gestion des stocks, optimisation des process — j'interviens directement dans votre structure pour diagnostiquer, structurer et faire avancer.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Appel découverte gratuit</a>
+      <a href="#services" class="btn-secondary">Voir les offres</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">3,5</span>
+        <span class="stat-label">Ans terrain</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">90%</span>
+        <span class="stat-label">Responsabilités</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">TPE</span>
+        <span class="stat-label">Uniquement</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">0€</span>
+        <span class="stat-label">Premier appel</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLÈMES -->
+<section id="problemes">
+  <div class="container">
+    <span class="section-tag">Vous reconnaissez-vous ?</span>
+    <h2>Ces problèmes<br>vous parlent ?</h2>
+    <p class="section-desc">La plupart des dirigeants de TPE que je rencontre vivent exactement ces situations.</p>
+    <div class="problemes-grid">
+      <div class="pb-item">
+        <div class="pb-num">01</div>
+        <div class="pb-title">Stock incontrôlable</div>
+        <div class="pb-desc">Ruptures à répétition, écarts entre le physique et l'informatique, inventaires impossibles.</div>
+      </div>
+      <div class="pb-item">
+        <div class="pb-num">02</div>
+        <div class="pb-title">Équipes sans méthode</div>
+        <div class="pb-desc">Chacun fait à sa façon. Les mauvaises habitudes se transmettent. Rien n'est formalisé.</div>
+      </div>
+      <div class="pb-item">
+        <div class="pb-num">03</div>
+        <div class="pb-title">Gestion des urgences</div>
+        <div class="pb-desc">Vous passez vos journées à éteindre des incendies au lieu de piloter votre activité.</div>
+      </div>
+      <div class="pb-item">
+        <div class="pb-num">04</div>
+        <div class="pb-title">Croissance non structurée</div>
+        <div class="pb-desc">Votre activité a grandi vite. Vos process n'ont pas suivi. Tout tient à un fil.</div>
+      </div>
+      <div class="pb-item">
+        <div class="pb-num">05</div>
+        <div class="pb-title">"On a toujours fait comme ça"</div>
+        <div class="pb-desc">Personne n'a remis en question les méthodes depuis des années. Les petits problèmes deviennent gros.</div>
+      </div>
+      <div class="pb-item">
+        <div class="pb-num">06</div>
+        <div class="pb-title">Vous bloquez, vous ne savez pas où</div>
+        <div class="pb-desc">Vous sentez que quelque chose ne va pas mais impossible de mettre le doigt dessus.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <span class="section-tag">Ce que je propose</span>
+    <h2>Des offres simples,<br>sans engagement</h2>
+    <p class="section-desc">Chaque mission commence par un appel gratuit. Aucun engagement sans devis signé.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01 — PONCTUEL</div>
+        <div class="service-title">Audit Diagnostic</div>
+        <div class="service-desc">Je viens sur site, j'observe, j'analyse et je vous remets un rapport complet avec un plan d'action clair.</div>
+        <ul class="service-items">
+          <li>Visite terrain (2-3h)</li>
+          <li>Entretien avec le dirigeant</li>
+          <li>Rapport d'audit complet</li>
+          <li>Plan d'action priorisé</li>
+        </ul>
+        <div class="service-price">350 € <span>HT — sans engagement</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02 — RECOMMANDÉ</div>
+        <div class="service-title">Forfait Mise en Place</div>
+        <div class="service-desc">L'audit + le déploiement des outils + une journée complète d'accompagnement terrain. Résultats en 4 semaines.</div>
+        <ul class="service-items">
+          <li>Audit diagnostic inclus</li>
+          <li>Déploiement des outils</li>
+          <li>1 journée terrain</li>
+          <li>Formation des équipes</li>
+        </ul>
+        <div class="service-price">750 € <span>HT — sans engagement</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03 — RÉCURRENT</div>
+        <div class="service-title">Suivi Mensuel</div>
+        <div class="service-desc">Un point mensuel, du support à distance et des ajustements réguliers pour maintenir le cap.</div>
+        <ul class="service-items">
+          <li>Point mensuel 1h</li>
+          <li>Support email & téléphone</li>
+          <li>Ajustements des outils</li>
+          <li>Compte-rendu mensuel</li>
+        </ul>
+        <div class="service-price">200 € <span>HT/mois — 3 mois min.</span></div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:2rem; font-size:0.82rem; color:var(--gris); font-style:italic;">TVA non applicable — Art. 293 B du CGI</p>
+  </div>
+</section>
+
+<!-- MÉTHODE -->
+<section id="methode">
+  <div class="container">
+    <span class="section-tag">Comment ça se passe</span>
+    <h2>Ma méthode<br>en 4 étapes</h2>
+    <p class="section-desc">Pas de jargon, pas de PowerPoint interminable. Du concret, du terrain, du résultat.</p>
+    <div class="methode-steps">
+      <div class="step-item">
+        <div class="step-circle">1</div>
+        <div class="step-title">Appel découverte</div>
+        <div class="step-desc">20 minutes gratuites. Vous décrivez votre situation. J'évalue si je peux vous aider.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">2</div>
+        <div class="step-title">Audit terrain</div>
+        <div class="step-desc">Je viens chez vous. J'observe, j'analyse, je pose les bonnes questions. Je remets un rapport complet.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">3</div>
+        <div class="step-title">Plan d'action</div>
+        <div class="step-desc">On décide ensemble. Priorités définies, actions claires, responsabilités établies.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">4</div>
+        <div class="step-title">Mise en place</div>
+        <div class="step-desc">Je déploie les outils, je forme vos équipes. Et je reste disponible pour la suite.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- À PROPOS -->
+<section id="apropos">
+  <div class="container">
+    <div class="apropos-grid">
+      <div>
+        <span class="section-tag">Qui suis-je</span>
+        <h2>Christopher<br>Brosse</h2>
+        <div class="apropos-atouts">
+          <div class="atout-item">
+            <div class="atout-chiffre">3,5</div>
+            <div class="atout-label">Ans responsable exploitation</div>
+          </div>
+          <div class="atout-item">
+            <div class="atout-chiffre">90%</div>
+            <div class="atout-label">Pouvoirs décisionnels</div>
+          </div>
+          <div class="atout-item">
+            <div class="atout-chiffre">TPE</div>
+            <div class="atout-label">Ma cible exclusive</div>
+          </div>
+          <div class="atout-item">
+            <div class="atout-chiffre">37/86</div>
+            <div class="atout-label">Zone d'intervention</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="apropos-quote">"J'arrive, j'observe, j'analyse. Je ne casse pas ce qui fonctionne. J'améliore ce qui bloque."</p>
+        <p class="apropos-text">Après 3 ans et demi à piloter un site logistique — production, stocks, RH, facturation, process — j'ai lancé Cap Logistic pour mettre cette expérience au service des TPE et e-commerçants.</p>
+        <p class="apropos-text">Pas de cabinet. Pas d'intermédiaire. C'est moi qui viens chez vous, sur le terrain, pour construire avec vous l'organisation que vous méritez.</p>
+        <a href="#contact" class="btn-primary" style="margin-top:1.5rem; display:inline-block;">Prendre contact</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE -->
+<section id="zone">
+  <div class="container">
+    <span class="section-tag">Zone d'intervention</span>
+    <h2>Indre-et-Loire<br>& Vienne</h2>
+    <div class="zone-content">
+      <div>
+        <p class="section-desc" style="margin-bottom:1rem;">J'interviens principalement dans ces deux départements. Des missions ponctuelles peuvent être envisagées dans les départements limitrophes selon la nature de la mission.</p>
+        <ul class="zone-list">
+          <li>Tours et agglomération (37)</li>
+          <li>Loches, Amboise, Chinon (37)</li>
+          <li>Poitiers et agglomération (86)</li>
+          <li>Châtellerault, Loudun (86)</li>
+          <li>Départements limitrophes sur demande</li>
+        </ul>
+      </div>
+      <div class="zone-map">
+        <span class="zone-dept">37</span>
+        <span class="zone-nom">Indre-et-Loire</span>
+        <br><br>
+        <span class="zone-dept">86</span>
+        <span class="zone-nom">Vienne</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <p class="contact-title">Parlons de votre situation</p>
+      <p class="contact-sub">La première conversation est gratuite et sans engagement. 20 minutes suffisent.</p>
+      <div class="contact-items">
+        <a href="tel:0777220123" class="contact-item">
+          <span class="contact-icon">📞</span>
+          07 77 22 01 23
+        </a>
+        <a href="mailto:cap-logistic@outlook.com" class="contact-item">
+          <span class="contact-icon">✉️</span>
+          cap-logistic@outlook.com
+        </a>
+        <a href="https://linkedin.com/in/cap-logistic-14747b412" target="_blank" class="contact-item">
+          <span class="contact-icon">💼</span>
+          linkedin.com/in/cap-logistic-14747b412
+        </a>
+      </div>
+      <a href="mailto:cap-logistic@outlook.com" class="btn-primary">Envoyer un message</a>
+      <p class="contact-note" style="margin-top:1.5rem;">Réponse sous 24h · Déplacement sur site inclus dans les offres</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Cap Logistic</span> — Christopher Brosse · Micro-entrepreneur · SIRET en cours d'attribution</p>
+  <p style="margin-top:0.5rem;">TVA non applicable — Art. 293 B du CGI · Indre-et-Loire (37) · Vienne (86)</p>
+</footer>
+
+</body>
+</html>
