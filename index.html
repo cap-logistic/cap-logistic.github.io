@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -287,6 +286,11 @@ h2 {
 }
 .service-card:hover { border-color: var(--or); transform: translateY(-3px); }
 
+.service-card.featured {
+  border-color: rgba(229,160,32,0.4);
+  background: rgba(229,160,32,0.03);
+}
+
 .service-card::before {
   content: '';
   position: absolute;
@@ -354,6 +358,15 @@ h2 {
   left: 0;
   color: var(--or);
   font-size: 0.75rem;
+}
+
+.service-warn {
+  font-size: 0.78rem;
+  color: rgba(229,160,32,0.6);
+  font-style: italic;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(229,160,32,0.1);
 }
 
 /* ---- MÉTHODE ---- */
@@ -711,47 +724,89 @@ h1 { animation-delay: 0.2s; }
 <section id="services">
   <div class="container">
     <span class="section-tag">Ce que je propose</span>
-    <h2>Des offres simples,<br>sans engagement</h2>
-    <p class="section-desc">Chaque mission commence par un appel gratuit. Aucun engagement sans devis signé.</p>
+    <h2>Des offres claires,<br>sans surprise</h2>
+    <p class="section-desc">Chaque mission commence par un audit diagnostic. Aucun engagement sans devis signé et acompte reçu.</p>
     <div class="services-grid">
+
+      <!-- AUDIT -->
       <div class="service-card">
-        <div class="service-num">01 — PONCTUEL</div>
+        <div class="service-num">01 — PORTE D'ENTRÉE</div>
         <div class="service-title">Audit Diagnostic</div>
-        <div class="service-desc">Je viens sur site, j'observe, j'analyse et je vous remets un rapport complet avec un plan d'action clair.</div>
+        <div class="service-desc">Le point de départ de toute mission. Je viens sur site, j'observe, j'analyse et je vous remets un rapport complet avec un plan d'action priorisé.</div>
         <ul class="service-items">
-          <li>Visite terrain (2-3h)</li>
+          <li>1 déplacement sur site (2-3h)</li>
           <li>Entretien avec le dirigeant</li>
           <li>Rapport d'audit complet</li>
           <li>Plan d'action priorisé</li>
+          <li>Remise du rapport en visio</li>
         </ul>
         <div class="service-price">350 € <span>HT — sans engagement</span></div>
+        <p class="service-warn">Diagnostic uniquement — la mise en place n'est pas incluse</p>
       </div>
-      <div class="service-card">
-        <div class="service-num">02 — RECOMMANDÉ</div>
-        <div class="service-title">Forfait Mise en Place</div>
-        <div class="service-desc">L'audit + le déploiement des outils + une journée complète d'accompagnement terrain. Résultats en 4 semaines.</div>
+
+      <!-- FORFAIT ESSENTIEL -->
+      <div class="service-card featured">
+        <div class="service-num">02 — FORFAIT</div>
+        <div class="service-title">Forfait Essentiel</div>
+        <div class="service-desc">Pour un problème ciblé et identifié. L'audit + la mise en place d'une solution concrète. Résultats visibles sous 3 semaines.</div>
         <ul class="service-items">
           <li>Audit diagnostic inclus</li>
-          <li>Déploiement des outils</li>
-          <li>1 journée terrain</li>
-          <li>Formation des équipes</li>
+          <li>Mise en place d'un outil ou d'une procédure</li>
+          <li>1 demi-journée terrain supplémentaire</li>
+          <li>Formation courte de l'équipe (1-2h)</li>
+          <li>1 point de suivi J+15 en visio</li>
         </ul>
-        <div class="service-price">750 € <span>HT — sans engagement</span></div>
+        <div class="service-price">750 € <span>HT — 1 problème traité</span></div>
+        <p class="service-warn">Tout problème supplémentaire = nouveau devis</p>
       </div>
+
+      <!-- FORFAIT COMPLET -->
       <div class="service-card">
-        <div class="service-num">03 — RÉCURRENT</div>
-        <div class="service-title">Suivi Mensuel</div>
-        <div class="service-desc">Un point mensuel, du support à distance et des ajustements réguliers pour maintenir le cap.</div>
+        <div class="service-num">03 — FORFAIT</div>
+        <div class="service-title">Forfait Complet</div>
+        <div class="service-desc">Pour une refonte organisationnelle en profondeur. Plusieurs problèmes traités, équipes formées, process redessinés.</div>
         <ul class="service-items">
-          <li>Point mensuel 1h</li>
+          <li>Audit diagnostic inclus</li>
+          <li>Cartographie complète des process</li>
+          <li>Rédaction des nouvelles procédures</li>
+          <li>1 journée terrain de déploiement</li>
+          <li>Formation équipe demi-journée</li>
+          <li>2 points de suivi J+15 et J+30 en visio</li>
+        </ul>
+        <div class="service-price">1 200 € <span>HT — périmètre défini au devis</span></div>
+        <p class="service-warn">Toute demande hors périmètre = avenant écrit</p>
+      </div>
+
+      <!-- SUIVI MENSUEL -->
+      <div class="service-card">
+        <div class="service-num">04 — RÉCURRENT</div>
+        <div class="service-title">Suivi Mensuel</div>
+        <div class="service-desc">Pour ancrer les changements dans la durée. Un point mensuel, du support et des ajustements réguliers.</div>
+        <ul class="service-items">
+          <li>Point mensuel 1h en visio</li>
           <li>Support email & téléphone</li>
           <li>Ajustements des outils</li>
           <li>Compte-rendu mensuel</li>
         </ul>
         <div class="service-price">200 € <span>HT/mois — 3 mois min.</span></div>
       </div>
+
+      <!-- PRESTATIONS A LA CARTE -->
+      <div class="service-card" style="grid-column: span 2;">
+        <div class="service-num">05 — À LA CARTE</div>
+        <div class="service-title">Prestations Spécifiques</div>
+        <div class="service-desc">Des interventions ciblées selon votre besoin précis, après l'audit diagnostic.</div>
+        <ul class="service-items" style="columns: 2; gap: 2rem;">
+          <li>Diagnostic stocks — 400 €</li>
+          <li>Optimisation des process — 600 €</li>
+          <li>Accompagnement terrain (journée) — 450 €</li>
+          <li>Formation équipe — 380 €</li>
+        </ul>
+        <div class="service-price" style="font-size:1.2rem; margin-top:1rem;">Mission sur mesure <span>— sur devis</span></div>
+      </div>
+
     </div>
-    <p style="text-align:center; margin-top:2rem; font-size:0.82rem; color:var(--gris); font-style:italic;">TVA non applicable — Art. 293 B du CGI</p>
+    <p style="text-align:center; margin-top:2rem; font-size:0.82rem; color:var(--gris); font-style:italic;">TVA non applicable — Art. 293 B du CGI · Paiement : 50% à la signature / 50% à la fin de mission</p>
   </div>
 </section>
 
