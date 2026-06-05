@@ -369,6 +369,15 @@ h2 {
   border-top: 1px solid rgba(229,160,32,0.1);
 }
 
+.service-card-wide {
+  grid-column: 1 / -1;
+}
+
+.service-items-two-col {
+  columns: 2;
+  gap: 2rem;
+}
+
 /* ---- MÉTHODE ---- */
 #methode { background: var(--gris-fonce); }
 
@@ -598,6 +607,19 @@ footer span { color: var(--or); }
   .methode-steps::after { display: none; }
   .contact-box { padding: 2rem 1.2rem; }
   .apropos-atouts { grid-template-columns: 1fr 1fr; }
+
+  /* CORRECTION BUG MOBILE SERVICES */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card-wide {
+    grid-column: 1 / -1;
+  }
+
+  .service-items-two-col {
+    columns: 1;
+  }
 }
 
 /* ---- ANIMATIONS ---- */
@@ -792,11 +814,11 @@ h1 { animation-delay: 0.2s; }
       </div>
 
       <!-- PRESTATIONS A LA CARTE -->
-      <div class="service-card" style="grid-column: span 2;">
+      <div class="service-card service-card-wide">
         <div class="service-num">05 — À LA CARTE</div>
         <div class="service-title">Prestations Spécifiques</div>
         <div class="service-desc">Des interventions ciblées selon votre besoin précis, après l'audit diagnostic.</div>
-        <ul class="service-items" style="columns: 2; gap: 2rem;">
+        <ul class="service-items service-items-two-col">
           <li>Diagnostic stocks — 400 €</li>
           <li>Optimisation des process — 600 €</li>
           <li>Accompagnement terrain (journée) — 450 €</li>
